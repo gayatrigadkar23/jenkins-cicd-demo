@@ -5,18 +5,20 @@ pipeline {
         stage('Build') {
             steps {
                 echo 'Building the application...'
+                bat 'docker --version'
             }
         }
 
         stage('Test') {
             steps {
-                echo 'Testing the application...'
+                echo 'Testing Docker...'
+                bat 'docker run --rm hello-world'
             }
         }
 
         stage('Deploy') {
             steps {
-                echo 'Deploying the application...'
+                echo 'Deployment stage completed.'
             }
         }
     }
